@@ -1,3 +1,5 @@
+# Time Complexity: O(n) to read each line, O(NlogN) to sort each time but O(N) > O(NlogN) 
+# Space Complexity: O(m) since we are using an additional list to store the sums
 with open("input.txt") as f:
     lines = f.readlines()
 
@@ -15,9 +17,6 @@ with open("input.txt") as f:
                 top_three_sums.append(cur_sum)
                 top_three_sums.sort()
                 top_three_sums.pop(0)
-                # if cur_sum > top_three_sums[2]:
-                #     top_three_sums.pop(0)
-                #     top_three_sums.append(cur_sum)
 
             cur_sum = 0
         
@@ -26,3 +25,4 @@ with open("input.txt") as f:
         max_sum += num
 
     print(max_sum)
+
