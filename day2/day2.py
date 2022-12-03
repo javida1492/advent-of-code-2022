@@ -18,17 +18,22 @@ with open("input.txt") as f:
     for line in lines:
         choices = line.split()
 
+        # Lose
         if choices[1] == 'X':
             if choices[0] == 'A': score += 3
-            elif choices[0] == 'C': score += 6
-        elif choices[1] == 'Y':
-            if choices[0] == 'B': score += 3
-            elif choices[0] == 'A': score += 6
+            elif choices[0] == 'B': score += 1
+            else: score += 2
+        # Draw
+        if choices[1] == 'Y':
+            if choices[0] == 'A': score += 1
+            elif choices[0] == 'B': score += 2
+            else: score += 3
+            score += 3
+        # Win
         elif choices[1] == 'Z':
-            if choices[0] == 'C': score += 3
-            elif choices[0] == 'B': score += 6
-
-        # Add choice
-        score += dict.get(choices[1])
+            if choices[0] == 'A': score += 2
+            elif choices[0] == 'B': score += 3
+            else: score += 1
+            score += 6
 
     print(score)
