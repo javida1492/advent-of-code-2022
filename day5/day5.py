@@ -51,16 +51,12 @@ def process_moves(stacks):
 
             stacks[source_index] = boxes_remaining
             stacks[destination_index].extend(boxes_to_move)
-            count += 1
-            print(count)
-
 
     return stacks
 
 def print_top_of_stacks(processed_stacks):
-
     for i in range(0, len(processed_stacks)):
-        print(processed_stacks[i][-1])
+        print(processed_stacks[i][-1], end="")
 
 def run():
     stacks = process_stacks()
