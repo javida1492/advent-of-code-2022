@@ -47,7 +47,7 @@ def process_moves(stacks):
             # Get boxes to move
             boxes_to_move = boxes[split_index:]
             #Reverse boxes to move since we are moving them 1 by 1
-            boxes_to_move.reverse()
+            # boxes_to_move.reverse()
 
             stacks[source_index] = boxes_remaining
             stacks[destination_index].extend(boxes_to_move)
@@ -68,4 +68,3 @@ def run():
     print_top_of_stacks(processed_stacks)
 
 run()
-
