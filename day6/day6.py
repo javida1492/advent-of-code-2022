@@ -2,14 +2,14 @@ input = "bgdbdsbsbsttldddzzwnzzmpzmmzmqqcgglrglgbbbtmtddrssjtjqqtrtqtqppcvcddswd
 input = [*input]
 
 count = 0
-window_size = 4
+window_size = 14
 
 for i in range(len(input) - window_size + 1):
     chars = {}
     sublist = input[i:i+window_size]
     char_set = set(sublist)
-    if len(char_set) == 4:
+    if len(char_set) == 14:
         break;
     count += 1        
 
-print(count+4)
+print(count+14)
