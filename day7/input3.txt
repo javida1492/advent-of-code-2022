@@ -1,0 +1,16 @@
+$ cd /
+$ ls
+dir a
+dir b
+dir c
+dir d
+$ cd a
+$ ls
+dir a_1
+dir a_2
+$ cd a_1
+$ ls 
+dir a_1_1
+dir a_1_2
+$ cd a_1_1
+$ ls
