@@ -30,7 +30,6 @@ def process_ls(line, current_node):
     else:
         if not search.find(current_node, lambda node: node.name == line[1], maxlevel=max_level):
             Node(line[1], size=int(line[0]), parent=current_node, type="file")
-            # current_node.size += int(line[0])
 
 def calculate_sizes(root):
     sizes = []
@@ -38,13 +37,17 @@ def calculate_sizes(root):
         if node.type == "file":
             node.parent.size += node.size
         else:
+            # Part 1
             # if node.size <= 100000:
+                # sizes.append(node.size)
+
             sizes.append(node.size)
             if not node.name == "/":
                 node.parent.size += node.size
 
     return sizes
 
+#Part 2
 def binary_search(sizes, diff):
     left= int(0)
     right=int(len(sizes))
@@ -83,19 +86,12 @@ with open("input.txt") as f:
 
     sizes = sorted(calculate_sizes(root))
 
-    # print(RenderTree(root))
-    # print(RenderTree(root, style=AsciiStyle()).by_attr())
-    print(sizes)
+    
     total_size = 0
     total_disk_space = 70000000
+    unused = 30000000
 
     for size in sizes:
         total_size += size
-
     diff = total_disk_space - root.size
-    unused = 30000000
-    print(unused-diff)
     idx = int(binary_search(sizes, unused-diff))
-    print("Total size: " + str(total_size))
-    print("Diff: " + str(total_disk_space - root.size))
-    print("Folder size to delete: " + str(sizes[idx]))
